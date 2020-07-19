@@ -1,0 +1,38 @@
+//Select elements
+const clear = document.querySelector(".clear");
+const input = document.querySelector("input");
+const dateElement = document.querySelector("#date");
+const list = document.querySelector("#list");
+
+///Clsses names
+const CHECK = "fa-check-circle";
+const UNCHECK = "fa-circle-thin";
+const LINE_TROUH = "lineTrough";
+
+//Set today Date
+const today = new Date();
+const options = { day: "numeric", weekday: "short", month: "short" };
+
+dateElement.innerHTML = today.toLocaleDateString("en-US", options);
+
+//add to do
+
+function addToDo(todo) {
+  const position = "beforeend";
+  let listItem = ` <li class="item">
+    <i class="fa fa-circle-thin co" job="complite" id="0"></i>
+    <p class="text">${todo}l</p>
+    <i class="fa fa-trash de" job="delete" id="0"></i>
+  </li>`;
+  list.insertAdjacentHTML(position, listItem);
+}
+
+addToDo("finish totorial");
+//Add element by Enter kety hit
+
+document.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13) toDo = input.value;
+  if (toDo) {
+    addToDo(toDo);
+  }
+});
